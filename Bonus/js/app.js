@@ -117,17 +117,3 @@ prevElement.addEventListener('click', function () {
         pointerWrapperElement[indexAct].classList.add('active');
     }
 })
-
-// prevElement.addEventListener('click', function () {
-//     // togliere active dalla slide attiva
-//     slideElements[indexAct].classList.remove('active');
-
-//     // aggiungere la classe active alla slide precedente (se esiste)
-//     // TODO: BONUS 1 - ciclo infinito
-//     if (indexAct === 0) {
-//         indexAct = slideElements.length - 1;
-//         slideElements[indexAct].classList.add('active');
-//     } else {
-//         slideElements[--indexAct].classList.add('active');
-//     }
-// })
