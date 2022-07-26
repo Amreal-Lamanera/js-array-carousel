@@ -54,6 +54,7 @@ nextElement.addEventListener('click', function () {
     slideElements[indexAct].classList.remove('active');
 
     // aggiungere la classe active alla slide successiva (se esiste)
+    // TODO: BONUS 1 - ciclo infinito
     if (indexAct === slideElements.length - 1) {
         indexAct = 0;
         slideElements[indexAct].classList.add('active');
@@ -70,6 +71,7 @@ prevElement.addEventListener('click', function () {
     slideElements[indexAct].classList.remove('active');
 
     // aggiungere la classe active alla slide precedente (se esiste)
+    // TODO: BONUS 1 - ciclo infinito
     if (indexAct === 0) {
         indexAct = slideElements.length - 1;
         slideElements[indexAct].classList.add('active');
