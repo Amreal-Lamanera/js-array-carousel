@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.slider {
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    /* height: 350px; */
+    object-fit: cover;
+    object-position: center;
+    display: none;
+}
+
+.slide.active img {
+    display: block;
+}
+
+.arrows {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.25rem;
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    color: tomato;
+}
