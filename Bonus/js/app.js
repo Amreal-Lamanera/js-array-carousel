@@ -17,7 +17,7 @@ let indexAct = 0;
 const wrapperElement = document.querySelector('.slides-wrapper');
 
 // creazione scorrimento nel tempo
-let myInterval = setInterval(nextFun, 2000);
+let myInterval = setInterval(nextFun, 5000);
 
 // generare il contenuto dello slider
 for (let i = 0; i < slides.length; i++) {
@@ -57,7 +57,7 @@ for (let i = 0; i < slideElements.length; i++) {
     pointerWrapperElement[i].addEventListener('click', function () {
         // se muovo slider resetto timer e lo faccio ripartire
         clearInterval(myInterval);
-        myInterval = setInterval(nextFun, 2000);
+        myInterval = setInterval(nextFun, 5000);
 
         // togliere active dal pointer attivo
         pointerWrapperElement[indexAct].classList.remove('active');
@@ -81,7 +81,7 @@ const nextElement = document.querySelector('.arrow-next');
 function nextFun() {
     // se muovo slider resetto timer e lo faccio ripartire
     clearInterval(myInterval);
-    myInterval = setInterval(nextFun, 2000);
+    myInterval = setInterval(nextFun, 5000);
 
     // togliere active dalla slide attiva
     slideElements[indexAct].classList.remove('active');
@@ -107,7 +107,7 @@ function nextFun() {
 function prevFun() {
     // se muovo slider resetto timer e lo faccio ripartire
     clearInterval(myInterval);
-    myInterval = setInterval(nextFun, 2000);
+    myInterval = setInterval(nextFun, 5000);
 
     // togliere active dalla slide attiva
     slideElements[indexAct].classList.remove('active');
