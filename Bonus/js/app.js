@@ -16,6 +16,9 @@ let indexAct = 0;
 
 const wrapperElement = document.querySelector('.slides-wrapper');
 
+// creazione scorrimento nel tempo
+let myInterval = setInterval(nextFun, 2000);
+
 // generare il contenuto dello slider
 for (let i = 0; i < slides.length; i++) {
     const src = slides[i];
@@ -47,11 +50,15 @@ for (let i = 0; i < slides.length; i++) {
 }
 
 // implementare i pointer
-const pointerWrapperElement = []
+const pointerWrapperElement = [];
 for (let i = 0; i < slideElements.length; i++) {
     pointerWrapperElement[i] = document.getElementById(i);
 
     pointerWrapperElement[i].addEventListener('click', function () {
+        // se muovo slider resetto timer e lo faccio ripartire
+        clearInterval(myInterval);
+        myInterval = setInterval(nextFun, 2000);
+
         // togliere active dal pointer attivo
         pointerWrapperElement[indexAct].classList.remove('active');
         // togliere active dalla slide attiva
@@ -66,12 +73,16 @@ for (let i = 0; i < slideElements.length; i++) {
         slideElements[indexAct].classList.add('active');
 
     })
-}
+};
 
 // implementare freccia right
 const nextElement = document.querySelector('.arrow-next');
 
 function nextFun() {
+    // se muovo slider resetto timer e lo faccio ripartire
+    clearInterval(myInterval);
+    myInterval = setInterval(nextFun, 2000);
+
     // togliere active dalla slide attiva
     slideElements[indexAct].classList.remove('active');
     // togliere active dal pointer attivo
@@ -91,14 +102,13 @@ function nextFun() {
         // passo al pointer successivo
         pointerWrapperElement[indexAct].classList.add('active');
     }
-}
+};
 
-nextElement.addEventListener('click', nextFun)
+function prevFun() {
+    // se muovo slider resetto timer e lo faccio ripartire
+    clearInterval(myInterval);
+    myInterval = setInterval(nextFun, 2000);
 
-// implementare freccia left
-const prevElement = document.querySelector('.arrow-prev');
-
-prevElement.addEventListener('click', function () {
     // togliere active dalla slide attiva
     slideElements[indexAct].classList.remove('active');
     // togliere active dal pointer attivo
@@ -118,6 +128,11 @@ prevElement.addEventListener('click', function () {
         // passo al pointer successivo
         pointerWrapperElement[indexAct].classList.add('active');
     }
-})
+};
 
-setInterval(nextFun, 5000);
+nextElement.addEventListener('click', nextFun);
+
+// implementare freccia left
+const prevElement = document.querySelector('.arrow-prev');
+
+prevElement.addEventListener('click', prevFun);
