@@ -117,3 +117,25 @@ prevElement.addEventListener('click', function () {
         pointerWrapperElement[indexAct].classList.add('active');
     }
 })
+
+setInterval(function () {
+    // togliere active dalla slide attiva
+    slideElements[indexAct].classList.remove('active');
+    // togliere active dal pointer attivo
+    pointerWrapperElement[indexAct].classList.remove('active');
+
+    // aggiungere la classe active alla slide successiva (se esiste)
+    if (indexAct === slideElements.length - 1) {
+        // riparto dalla prima slide => azzero index
+        indexAct = 0;
+        // cambio slide all'index
+        slideElements[indexAct].classList.add('active');
+        // cambio pointer all'index
+        pointerWrapperElement[indexAct].classList.add('active');
+    } else {
+        // passo alla slide successiva
+        slideElements[++indexAct].classList.add('active');
+        // passo al pointer successivo
+        pointerWrapperElement[indexAct].classList.add('active');
+    }
+}, 5000);
